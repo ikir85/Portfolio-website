@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import { images } from "../../dataTable/imageData";
 import "react-slideshow-image/dist/styles.css";
+import TumblrPosts from "./TumblrPosts";
+import { useContext } from "react";
+import { ThemeContext } from "../../components/context/themeContext";
 
 export default function GalleryList() {
+  const { theme } = useContext(ThemeContext);
   return (
     <>
-      <div className="columns-1 gap-5 pt-52 sm:columns-2 sm:gap-6 md:columns-3 lg:columns-4 [&>div:not(:first-child)]:mt-8">
-        {images.map((galleryImages) => (
-          <div className="group relative">
+      {/*<div className="columns-1 gap-5 pt-52 sm:columns-2 sm:gap-6 md:columns-3 lg:columns-4 [&>div:not(:first-child)]:mt-8">
+         {images.map((galleryImages, index) => (
+          <div className="group relative" key={index}>
             <img
               className="h-auto w-fit object-cover group-hover:opacity-20"
               src={galleryImages.file}
@@ -20,7 +24,12 @@ export default function GalleryList() {
               {galleryImages.name}
             </Link>
           </div>
-        ))}
+        ))} 
+      </div>*/}
+      <div
+        className={`px-20 pt-52 ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
+      >
+        <TumblrPosts />
       </div>
     </>
   );

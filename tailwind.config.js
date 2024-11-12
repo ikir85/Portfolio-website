@@ -3,7 +3,11 @@ export default {
   content: ["./src/**/*.{html,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      flex: {
+        3: "3 3 0%",
+      },
+    },
   },
   plugins: [],
 };

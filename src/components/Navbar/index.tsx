@@ -13,11 +13,11 @@ const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <label className="flex cursor-pointer items-center">
+    <label className="relative z-10 flex cursor-pointer items-center">
       <input type="checkbox" id="toggle" className="peer sr-only" />
       <div
         onClick={toggleTheme}
-        className={`relative block h-6 w-14 rounded-full ${theme === "light" ? "bg-zinc-800" : "bg-gray-300"} bg-blue-900 p-1 before:absolute before:left-1 before:h-4 before:w-4 before:rounded-full before:bg-zinc-100 before:p-1 before:transition-all before:duration-500 peer-checked:before:left-8 peer-checked:before:bg-zinc-800`}
+        className={`relative block h-5 w-12 rounded-full ${theme === "light" ? "bg-black" : "bg-gray-300 border border-white"}  p-1 before:absolute before:left-1 before:h-3 before:w-3 before:rounded-full before:bg-zinc-100 before:p-1 before:transition-all before:duration-500 peer-checked:before:left-8 peer-checked:before:bg-zinc-800`}
       ></div>
     </label>
   );
@@ -36,9 +36,7 @@ export default function Navbar() {
             className={`${theme === "light" ? "text-black" : "text-white"} relative z-10`}
           >
             <span className="text-7xl font-bold">RIKI</span>
-            <span className="block bg-clip-text text-8xl font-bold backdrop-invert">
-              TINOZA
-            </span>
+            <span className="block text-8xl font-bold">TINOZA</span>
           </div>
           <ThemeToggleButton />
         </div>
