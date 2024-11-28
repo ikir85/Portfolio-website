@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="">
+        <div className="h-full flex-col">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

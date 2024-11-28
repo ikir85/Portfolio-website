@@ -31,7 +31,7 @@ export default function ImageHP({
       onMouseLeave={() => setImageHover(false)}
     >
       <img
-        className="cursor-pointer transition-opacity group-hover:opacity-20"
+        className="cursor-pointer p-0 transition-opacity group-hover:opacity-20"
         src={src}
         alt={alt}
         {...props}

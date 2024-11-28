@@ -18,3 +18,9 @@
   z-index: -1;
   backdrop-filter: invert(1);
 }
+
+html,
+body,
+#root {
+  @apply h-full;
+}
