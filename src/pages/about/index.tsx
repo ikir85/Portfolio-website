@@ -7,7 +7,7 @@ export default function About() {
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      <div className="flex h-[calc(100vh-120px)]">
+      <div className="flex h-full">
         <div
           className={`flex flex-1 flex-col justify-center p-12 ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
         >

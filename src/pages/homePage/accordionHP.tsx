@@ -17,13 +17,13 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
   const accordionBg = () => {
     switch (index) {
       case 0:
-        return "bg-gray-300";
+        return "bg-gray-100";
       case 1:
-        return "bg-gray-500";
+        return "bg-gray-300";
       case 2:
-        return "bg-gray-700";
-      default:
         return "bg-gray-500";
+      default:
+        return "bg-gray-300";
     }
   };
 
@@ -51,8 +51,9 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
 
   return (
     <div
-      className={`flex w-full absolute top-0 cursor-pointer duration-300 ease-in-out h-full flex-col justify-center items-center rounded-l-3xl transition-all group ${translations[index] || ""} ${accordionBg()}`}
+      className={`flex w-full absolute group top-0 cursor-pointer duration-300 ease-in-out h-full flex-col justify-center items-center rounded-l-3xl transition-all group ${translations[index] || ""} ${accordionBg()}`}
       onMouseOver={() => setOpenIndex(index)}
+      onClick={() => setOpenIndex(index)}
     >
       <div className="w-full px-20 py-10 text-left">
         <div
@@ -60,7 +61,9 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
         >
           {title}
         </div>
-        <div className="mt-3 text-left">{children}</div>
+        <div className="mt-3 text-left transition-all [&_.faded-texte]:h-16 [&_.faded-texte]:overflow-hidden [&_.faded-texte]:text-red-600 [&_.faded-texte]:group-hover:h-full">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -69,7 +72,7 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
 export default function Accordion() {
   return (
     <div className="flex flex-row">
-      <AccordionPanel index={0} title="À propos">
+      <AccordionPanel index={0} title="0. À propos">
         <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
         <AccordionHPContent title="Tab panel 1">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -79,7 +82,7 @@ export default function Accordion() {
           aspernatur aut odit aut fugit,
         </AccordionHPContent>
       </AccordionPanel>
-      <AccordionPanel index={1} title="Projet 1">
+      <AccordionPanel index={1} title="1. Projet">
         <p>similique sunt in culpa qui officia deserunt mollitia</p>
         <AccordionHPContent title="Tab panel 2">
           Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
@@ -87,7 +90,7 @@ export default function Accordion() {
           autem vel eum iure reprehenderit qui in ea voluptate velit
         </AccordionHPContent>
       </AccordionPanel>
-      <AccordionPanel index={2} title="Projet 2">
+      <AccordionPanel index={2} title="2. Projet">
         <p>Nam libero tempore, cum soluta nobis est eligendi</p>
         <AccordionHPContent title="Tab panel 3">
           At vero eos et accusamus et iusto odio dignissimos ducimus qui

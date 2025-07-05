@@ -9,7 +9,7 @@ export const NavbarElement = ({ href, name }: Props) => {
   return (
     <NavLink
       className={({ isActive }) =>
-        `${isActive ? "text-lg font-bold hover:underline" : "text-lg hover:underline"} dark:text-white`
+        `${isActive ? "text-lg font-bold" : "text-lg"} dark:text-white`
       }
       to={href}
     >

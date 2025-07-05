@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from "react";
+{
+  /*import { useRef, useEffect, useState } from "react";
 import { Stage, Layer, Image as KonvaImage } from "react-konva";
 
 const ImageManipulation = () => {
@@ -85,4 +86,5 @@ const ImageManipulation = () => {
   );
 };
 
-export default ImageManipulation;
+export default ImageManipulation;*/
+}

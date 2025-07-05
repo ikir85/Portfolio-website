@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <AccordionProvider>
       <div
-        className={`relative h-[calc(100vh-120px)] ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
+        className={`relative h-full ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
       >
         <Accordion />
       </div>

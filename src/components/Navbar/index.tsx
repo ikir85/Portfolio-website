@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavbarElement } from "./NavbarElement";
 import { ThemeContext } from "../context/themeContext";
+import { BurgerMenu } from "./burgerMenu";
 const navLinks = [
   { href: "/", name: "Home" },
   { href: "/about", name: "À propos" },
@@ -25,22 +26,29 @@ const ThemeToggleButton = () => {
 
 export default function Navbar() {
   const { theme } = useContext(ThemeContext);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
 
   return (
     <>
       <div
-        className={`relative mx-auto flex justify-end px-6 py-4 ${theme === "light" ? "bg-white" : "bg-black"}`}
+        className={`relative w-full flex justify-end px-6 py-4 ${theme === "light" ? "bg-white" : "bg-black"}`}
       >
-        <div className="absolute left-0 top-0 pl-9 pt-8">
+        <div className="absolute left-0 top-0 flex flex-col gap-4 pl-4 pt-4 md:gap-6 md:pl-9 md:pt-8">
           <div
-            className={`${theme === "light" ? "text-black" : "text-white"} relative z-10`}
+            className={`${theme === "light" ? "text-black" : "text-white"} relative z-10 flex gap-4 md:gap-0 flex-row md:flex-col`}
           >
-            <span className="text-7xl font-bold">RIKI</span>
-            <span className="block text-8xl font-bold">TINOZA</span>
+            <span className="text-3xl font-bold md:text-7xl">RIKI</span>
+            <span className="block text-3xl font-bold md:text-8xl">TINOZA</span>
           </div>
-          <ThemeToggleButton />
+          <div>
+            <ThemeToggleButton />
+          </div>
         </div>
-        <div className="flex gap-10">
+        <div className="hidden gap-10 md:flex">
           {navLinks.map((navLink) => (
             <NavbarElement
               href={navLink.href}
@@ -48,6 +56,31 @@ export default function Navbar() {
               key={navLink.href}
             />
           ))}
+        </div>
+        <div className="md:hidden" onClick={toggleHamburger}>
+          <BurgerMenu />
+          {hamburgerOpen && (
+            <div
+              className={`fixed w-full inset-14 z-50 flex items-center justify-end bg-black bg-opacity-50 ${hamburgerOpen ? "flex" : "none"}`}
+            >
+              <div
+                className="h-full w-full transform bg-white p-4 transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: hamburgerOpen
+                    ? "translateX(0)"
+                    : "translateX(100%)",
+                }}
+              >
+                <ul className="flex flex-col gap-6">
+                  {navLinks.map((navLink) => (
+                    <li key={navLink.href}>
+                      <NavbarElement href={navLink.href} name={navLink.name} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

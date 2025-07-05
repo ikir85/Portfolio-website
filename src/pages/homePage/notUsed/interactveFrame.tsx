@@ -1,4 +1,4 @@
-import { ReactP5Wrapper } from "@p5-wrapper/react";
+/*import { ReactP5Wrapper } from "@p5-wrapper/react";
 
 function sketch(p5) {
   p5.setup = () => p5.createCanvas(600, 400, p5.WEBGL);
@@ -17,4 +17,4 @@ function sketch(p5) {
 
 export function App() {
   return <ReactP5Wrapper sketch={sketch} />;
-}
+}*/

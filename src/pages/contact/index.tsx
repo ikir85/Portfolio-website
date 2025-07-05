@@ -7,9 +7,9 @@ export default function Contact() {
   return (
     <>
       <div
-        className={`flex justify-center ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
+        className={`flex justify-center h-full ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
       >
-        <div className="mx-auto h-[calc(100vh-120px)] max-w-7xl pt-20">
+        <div className="mx-auto max-w-7xl pt-20">
           <h1 className="text-center text-5xl font-bold">
             Formulaire de contact
           </h1>
