@@ -5,7 +5,7 @@ export default function ImageEditor() {
   const [link, setLink] = useState(image1);
   const [spacing, setSpacing] = useState(5);
   const [blur, setBlur] = useState(0);
-  const [baseColor, setBaseColor] = useState("#0000FF");
+  const [baseColor, setBaseColor] = useState("#669c35");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -77,7 +77,7 @@ export default function ImageEditor() {
         />
       </article>
       <img
-        className="imageEditor-img max-h-[50rem] max-w-[50rem]"
+        className="imageEditor-img max-h-[50rem] max-w-[20rem]"
         style={imageStyle}
         src={link}
         alt={link === "image1" ? "Default alt text" : "Pasted image"}

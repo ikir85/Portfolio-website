@@ -8,7 +8,7 @@ const Layout = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      <div className="flex h-screen flex-col">
+      <div className="flex h-full flex-col">
         <Navbar />
         <main
           className={`relative flex-grow bg-gray-200 ${theme === "light" ? "bg-white" : "bg-black text-white"}`}

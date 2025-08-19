@@ -17,14 +17,14 @@ export default function WebProjectDetail() {
     <div
       className={`relative flex items-center justify-center h-full ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
     >
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 pt-20">
         <div className="flex w-full flex-col items-center gap-8">
-          <h1>Web Project Detail</h1>
-          <p>
+          <h1>Détails du projet</h1>
+          {/*<p>
             Project ID: {id} : {currentIndex}
-          </p>
+          </p>*/}
         </div>
-        {projects[currentIndex - 1]?.component}
+        {projects[currentIndex]?.component}
       </div>
       <div className="absolute bottom-8 flex w-full justify-center">
         <div className="relative flex w-8/12 justify-between">
