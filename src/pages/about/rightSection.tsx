@@ -1,4 +1,5 @@
 import imageRight from "../../assets/img/surfer_image.jpeg";
+import pdfCV from "../../assets/pdf/NDINGA_CV_24.pdf";
 import DownloadLink from "../../components/Links/DowlnloadLink";
 
 export default function RightSection() {
@@ -14,7 +15,7 @@ export default function RightSection() {
           <DownloadLink
             className="underline"
             fileName="Cv-Web_NDINGA"
-            fileUrl="/src/assets/pdf/NDINGA_CV_24.pdf"
+            fileUrl={pdfCV}
           />
         </nav>
       </div>
