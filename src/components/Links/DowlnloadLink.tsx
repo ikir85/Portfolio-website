@@ -8,12 +8,13 @@ interface DownloadLinkProps extends React.HTMLAttributes<HTMLLinkElement> {
 
 export default function DownloadLink({ fileName, fileUrl }: DownloadLinkProps) {
   return (
-    <a href={fileUrl} download={fileName}>
-      <FontAwesomeIcon
-        className="mr-2 text-base text-gray-700"
-        icon={faDownload}
-      />
-      {fileName}
+    <a
+      className="text-xl text-black hover:underline"
+      href={fileUrl}
+      download={fileName}
+    >
+      <FontAwesomeIcon className="mr-2 text-base" icon={faDownload} />
+      Curriculum Vitae
     </a>
   );
 }

@@ -17,11 +17,23 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
   const accordionBg = () => {
     switch (index) {
       case 0:
-        return "bg-gray-100";
+        if (theme === "light") {
+          return "bg-gray-100";
+        } else {
+          return "bg-gray-800";
+        }
       case 1:
-        return "bg-gray-300";
+        if (theme === "light") {
+          return "bg-gray-300";
+        } else {
+          return "bg-gray-700";
+        }
       case 2:
-        return "bg-gray-500";
+        if (theme === "light") {
+          return "bg-gray-500";
+        } else {
+          return "bg-gray-600";
+        }
       default:
         return "bg-gray-300";
     }
@@ -70,37 +82,71 @@ const AccordionPanel = ({ index, title, children }: AccordionPanelProps) => {
 };
 
 export default function Accordion() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="flex flex-row">
-      <AccordionPanel index={0} title="0. À propos">
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
-        <AccordionHPContent title="Tab panel 1">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit,
-        </AccordionHPContent>
-      </AccordionPanel>
-      <AccordionPanel index={1} title="1. Projet">
-        <p>similique sunt in culpa qui officia deserunt mollitia</p>
-        <AccordionHPContent title="Tab panel 2">
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-          suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-          autem vel eum iure reprehenderit qui in ea voluptate velit
-        </AccordionHPContent>
-      </AccordionPanel>
-      <AccordionPanel index={2} title="2. Projet">
-        <p>Nam libero tempore, cum soluta nobis est eligendi</p>
-        <AccordionHPContent title="Tab panel 3">
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio.
-        </AccordionHPContent>
-      </AccordionPanel>
+    <div className="flex h-full flex-col">
+      <div
+        className={`flex h-full w-full flex-col items-center justify-center md:hidden ${theme === "light" ? "bg-gray-500" : "bg-black"}`}
+      >
+        <div className="flex w-10/12 flex-col gap-8">
+          <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+            <p className="text-base font-bold md:text-3xl">
+              Integrateur web - Developpeur Front end
+            </p>
+            <ul className="list-disc pl-10">
+              <li>Intégration de site web depuis 10 ans</li>
+              <li>Developement front end (React JS)</li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+            <p className="text-base font-bold md:text-3xl">Photographie</p>
+            <ul className="list-disc pl-10">
+              <li>Phographe en studio</li>
+              <li>Portraitiste</li>
+              <li>Retoucheur</li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+            <p className="text-base font-bold md:text-3xl">Actualités</p>
+            <ul className="list-disc pl-10">
+              <li>Formation ambient IT - Mais 2025</li>
+              <li>Site e-commerce - https://lesarchives.net</li>
+              <li>Site produit déco (À venir)- http://ninaé.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="hidden md:block">
+        <AccordionPanel index={0} title="Actualité">
+          <p>Formations React - Site web e-commerce</p>
+          <AccordionHPContent title="Voir plus">
+            <ul className="list-disc">
+              <li>Formation ambient IT - Mais 2025</li>
+              <li>Site e-commerce - https://lesarchives.net</li>
+              <li>Site produit déco (À venir)- http://ninaé.com</li>
+            </ul>
+          </AccordionHPContent>
+        </AccordionPanel>
+        <AccordionPanel index={1} title="Photographie">
+          <p>Photographe portraitiste Studio</p>
+          <AccordionHPContent title="Voir plus">
+            <ul className="list-disc">
+              <li>Phographe en studio</li>
+              <li>Portraitiste</li>
+              <li>Retoucheur</li>
+            </ul>
+          </AccordionHPContent>
+        </AccordionPanel>
+        <AccordionPanel index={2} title="Web">
+          <p>Integrateur web - Developpeur Front end</p>
+          <AccordionHPContent title="Voir plus">
+            <ul className="list-disc">
+              <li>Intégration de site web depuis 10 ans</li>
+              <li>Developement front end (React JS)</li>
+            </ul>
+          </AccordionHPContent>
+        </AccordionPanel>
+      </div>
     </div>
   );
 }

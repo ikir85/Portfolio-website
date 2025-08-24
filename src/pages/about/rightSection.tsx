@@ -3,7 +3,7 @@ import DownloadLink from "../../components/Links/DowlnloadLink";
 
 export default function RightSection() {
   return (
-    <div className="relative flex flex-1 items-center justify-center bg-gray-100">
+    <div className="relative hidden flex-1 items-center justify-center bg-gray-100 sm:flex">
       <img
         src={imageRight}
         alt="Surfing"
@@ -13,8 +13,8 @@ export default function RightSection() {
         <nav className="flex gap-8 text-lg">
           <DownloadLink
             className="underline"
-            fileName="Curriculum vitae"
-            fileUrl="path/to/your/file.pdf"
+            fileName="Cv-Web_NDINGA"
+            fileUrl="/src/assets/pdf/NDINGA_CV_24.pdf"
           />
         </nav>
       </div>

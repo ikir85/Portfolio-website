@@ -9,7 +9,7 @@ export default function About() {
     <>
       <div className="flex h-full">
         <div
-          className={`flex flex-1 flex-col justify-center p-12 ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
+          className={`flex flex-1 flex-col justify-center px-4 sm:px-6 md:px-12 py-12 ${theme === "light" ? "bg-white" : "bg-black text-white"}`}
         >
           <MainContent />
         </div>

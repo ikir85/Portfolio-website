@@ -9,7 +9,9 @@ interface props {
 export default function ProjectInfo({ title, projectLink, techno }: props) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-2xl font-bold">{title}</span>
+      <span className="text-lg font-bold text-slate-700 md:text-xl">
+        {title}
+      </span>
       <Link className="hover:text-gray-500" to={`${projectLink}`}>
         {projectLink}
       </Link>

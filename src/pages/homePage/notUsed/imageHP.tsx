@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { imageDisplay } from "../../dataTable/imageData";
+import { imageDisplay } from "../../../dataTable/imageData";
 
 const MainImgDisplay: Record<imageDisplay, string> = {
   portrait: "w-1/3",

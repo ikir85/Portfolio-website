@@ -5,8 +5,8 @@ import { BurgerMenu } from "./burgerMenu";
 const navLinks = [
   { href: "/", name: "Home" },
   { href: "/about", name: "À propos" },
-  { href: "/gallery", name: "Gallerie" },
   { href: "/webProject", name: "Projets web" },
+  { href: "/gallery", name: "Photographie" },
   { href: "/contact", name: "Contact" },
 ] as const;
 
@@ -35,14 +35,14 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`relative w-full flex justify-end px-6 py-4 ${theme === "light" ? "bg-white" : "bg-black"}`}
+        className={`relative w-full flex justify-end items-center px-6 py-4 ${theme === "light" ? "bg-white" : "bg-black"}`}
       >
-        <div className="absolute left-0 top-0 flex flex-col gap-4 pl-4 pt-4 md:gap-6 md:pl-9 md:pt-8">
+        <div className="absolute left-0 top-0 flex flex-col gap-8 pl-4 pt-4 md:gap-6 md:pl-9 md:pt-8">
           <div
             className={`${theme === "light" ? "text-black" : "text-white"} relative z-10 flex gap-4 md:gap-0 flex-row md:flex-col`}
           >
-            <span className="text-3xl font-bold md:text-7xl">RIKI</span>
-            <span className="block text-3xl font-bold md:text-8xl">TINOZA</span>
+            <span className="text-4xl font-bold md:text-7xl">RIKI</span>
+            <span className="block text-4xl font-bold md:text-8xl">TINOZA</span>
           </div>
           <div>
             <ThemeToggleButton />
@@ -58,13 +58,13 @@ export default function Navbar() {
           ))}
         </div>
         <div className="md:hidden" onClick={toggleHamburger}>
-          <BurgerMenu />
+          <BurgerMenu isOpen={hamburgerOpen} theme={theme} />
           {hamburgerOpen && (
             <div
-              className={`fixed w-full inset-14 z-50 flex items-center justify-end bg-black bg-opacity-50 ${hamburgerOpen ? "flex" : "none"}`}
+              className={`fixed w-full h-full inset-0 inset-y-14 z-50 flex items-center justify-end bg-black bg-opacity-50 ${hamburgerOpen ? "flex" : "none"}`}
             >
               <div
-                className="h-full w-full transform bg-white p-4 transition-transform duration-300 ease-in-out"
+                className={`h-full w-full transform p-4 transition-transform duration-300 ease-in-out ${theme === "light" ? "bg-white" : "bg-black"}`}
                 style={{
                   transform: hamburgerOpen
                     ? "translateX(0)"
@@ -73,7 +73,10 @@ export default function Navbar() {
               >
                 <ul className="flex flex-col gap-6">
                   {navLinks.map((navLink) => (
-                    <li key={navLink.href}>
+                    <li
+                      className={`${theme === "light" ? "text-black" : "text-white"}`}
+                      key={navLink.href}
+                    >
                       <NavbarElement href={navLink.href} name={navLink.name} />
                     </li>
                   ))}
